@@ -1,8 +1,3 @@
-/*.grid {
-	position: absolute; width: 100%; height: 100%;
-	background: url(../i/24px_grid_bg.gif);
-	}
-*/
 .helper-box {
 	border:dashed 1px #eee;
 	padding: 10px;
@@ -21,7 +16,6 @@ body {
 	font: normal 14px/24px "open_sansregular";
 	color: #666;
 	width: 1230px;
-	background: url(../i/24px_grid_bg.gif);
 	}
 
 a {
@@ -247,15 +241,19 @@ h6 {
 	overflow: hidden;
 	width: 150px;
 	margin-left: -5px;
+	height: 30px;
 	}
 
 	.form.active {
 		background: #fafafa;
-		padding: 15px;
 		box-shadow: 0 0 5px #808080;
-		width: 265px;
 		}
 
+
+	.form .icon-search {
+		position: absolute; top: 8px; right: 8px;
+		color: #999;
+		}
 
 .form-text {
 	display: block;
@@ -273,32 +271,23 @@ h6 {
 	background: #fff;
 	}
 
-	.form.active .form-text {
-		width: 253px;
-		}
-
-	.form-text_search {
-		background: url('../i/ico-search.png') no-repeat 100% 50%;
-		}
-
-		.form.active .form-text_search {
-			background: none;
-			}
 
 .ico-erase {
 	display: block;
-	width: 18px; height: 18px;
 	background: url('../i/ico-erase.png') no-repeat 0 50%;
 	border: none;
 	}
 
-	.form.inactive .ico-erase {
-		display: none;
+
+	.form .ico-erase {
+		display: none; position: absolute; top: 21px; right: 25px;
 		}
 
-	.form.active .ico-erase {
-		display: block; position: absolute; top: 25px; right: 25px;
+	.form .icon-remove-sign {
+		font-size: 20px;
+		color: #999;
 		}
+
 
 .submit {
 	display: block;
@@ -309,15 +298,15 @@ h6 {
 	box-shadow: 0 2px 5px #7f7f7f;
 	}
 
-	.form.inactive .submit {
+	.form .submit {
 		display: none;
-		}
-
-	.form.active .submit {
 		float: right;
 		margin-top: 17px;
 		margin-bottom: 12px;
 		}
+		.form.active .submit {
+			display: block;
+			}
 
 .social {
 	

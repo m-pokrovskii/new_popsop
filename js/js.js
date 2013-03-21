@@ -1,16 +1,67 @@
 $(function() {
   $('.form .form-text')
-  	.focus(function() {
-  		$(this).closest('.form').removeClass('inactive').addClass('active');
-  	})
+    .focus(animateOn);
 
   $(document).click( function(event){
-    console.log(event.target);
     if( $(event.target).closest(".form").length || $(event.target).closest(".form input").length || $(event.target).closest(".form button").length) 
       return;
-    $(".form").removeClass('active').addClass('inactive');
+    $form = $('.form');
+    animateOff($form);
     event.stopPropagation();
   });
+
+
+function animateOn (e) {
+  $form = $(this).closest('.form');
+  $input = $form.find('.form-text');
+  $search = $form.find('.icon-search')
+  $erase = $form.find('.ico-erase');
+  
+  $search.hide();
+  $form
+    .css({
+      position: 'relative',
+      zIndex: '10',
+    })
+    .removeClass('inactive').addClass('active')
+    .animate({
+      width: 265,
+      padding: 15,
+      height: 100,
+      marginLeft: '-15px',
+      marginTop: '-15px',
+      },
+      'fast', function() {
+        $erase.css('display', 'block').click(function(event) {
+          event.preventDefault();
+        })
+      })
+  $input.animate({width: 260}, "fast");
+    
+}
+
+function animateOff (form) {
+  $form = form;
+  $input = $form.find('.form-text');
+  $erase = $form.find('.ico-erase');
+  $search = $form.find('.icon-search')
+  $submit = $form.find('.submit');
+
+  $erase.css('display', 'none');
+
+  $form
+    .animate({
+      width: 150,
+      padding: 0,
+      marginLeft: '-5px',
+      marginTop: '0',
+      height : '30',
+      },'fast', function(){
+        $search.show();
+        $form.removeClass('active');
+      })
+  $input.animate({width: 138}, "fast");
+}
 
 
   // $('.mr-menu').mouseleave(function(event) {
