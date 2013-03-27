@@ -100,6 +100,10 @@ h6 {
 	box-shadow: 0 2px 3px #b3b3b3;
 	}
 
+	.title-news a {
+		display: inline-block;
+		}
+
 	.lt-ie9 .title-news {
      background:transparent;
      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCf3f3ee,endColorstr=#CCf3f3ee); 
@@ -130,14 +134,19 @@ h6 {
 .v-menu li {
 	line-height: 24px;
 	position: relative;
+	z-index: 11;
 	}
 
 	.v-menu span {
-		background: url('../i/bullet.png') no-repeat 100% 50%;
 		padding-right: 9px;
 		cursor: pointer;
 		display: inline-block;
 		box-sizing:border-box;
+		}
+
+	.v-menu__icon-caret-right {
+		font-size: 14px;
+		color: #999;
 		}
 
 	.v-menu span:hover {
@@ -147,6 +156,14 @@ h6 {
 		margin-left: -5px;
 		background: rgb(153,153,153);
 		background: rgba(153,153,153, 0.5);
+		}
+
+	.v-menu span:hover .v-menu__icon-caret-right {
+		display: none;
+		}
+
+	.v-menu .maintainHover {
+		z-index: 20;
 		}
 
 	.v-menu .maintainHover span{
@@ -258,7 +275,7 @@ h6 {
 .form-text {
 	display: block;
 	padding: 5px 5px;
-	border-top: solid 1px #b2b2b2;			
+	border-top: none;
 	border-left: solid 1px #ececec;			
 	border-right: solid 1px #ececec;
 	border-bottom: 0;
@@ -358,6 +375,7 @@ h6 {
 		box-shadow: 0px 12px 3px -10px rgba(102,102,102,0.3);
 		padding-left: 10px;
 		margin-left: -10px;
+		margin-right: -10px;
 		}
 
 .breadpath {
@@ -460,7 +478,7 @@ h6 {
 	}
 
 	.news-feed li {
-		border-top: solid 1px #ccc;
+		border-top: solid 1px #efdddd;
 		padding: 11px 0 10px 0;
 		}
 
@@ -488,9 +506,9 @@ h6 {
 
 	.b-v-news li {
 		overflow: hidden;
-		border-top: solid 1px #ccc;
+		border-top: solid 1px #efdddd;
 		padding-top: 10px;
-		padding-bottom: 14px;
+		padding-bottom: 12px;
 		}
 
 		.b-v-news li:first-child {
@@ -508,7 +526,7 @@ h6 {
 
 	.b-v-news_prv {
 		float: right;
-		width: 96px; height: 59px;
+		width: 96px; height: 72px;
 		margin-left: 5px;
 		}
 
@@ -586,7 +604,7 @@ h6 {
 .aside-left {
 	float: left;
 	width: 144px;
-	margin-top: 9px;
+	margin-top: 6px;
 	}
 
 
@@ -644,17 +662,18 @@ article.post {
 
 
 .v-menu__mr-menu {
-	position: absolute; left: 97px; top: -40px; z-index: 10;
+	position: absolute; left: 97px; top: -40px;
 	display: none;
 	}
 
-.mp-news a:hover+.title-news {
+.mp-news a:hover+.title-news, .title-news:hover {
 	display: block;
 	}
 
 .mp-news .title-news {
 	top: -81px;
 	}
+
 
 
 /**/
@@ -702,7 +721,7 @@ margin-bottom: 25px;
 }
 
 .aside-left .page-menu {
-	border-top: solid 1px #ccc;
+	border-top: solid 1px #efdddd;
 	padding-top: 5px;
 	margin-bottom: 24px;
 }
@@ -715,6 +734,7 @@ margin-bottom: 20px;
 
 .aside-right .vda {
 	margin: 0 5px;
+	margin-bottom: 3px;
 	}
 
 

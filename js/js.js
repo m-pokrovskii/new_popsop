@@ -36,7 +36,7 @@ function animateOn (e) {
           event.preventDefault();
         })
       })
-  $input.animate({width: 260}, "fast");
+  $input.animate({width: 253}, "fast");
     
 }
 
@@ -96,7 +96,11 @@ function animateOff (form) {
         submenuId = $row.data("item"),
         $submenu = $("#" + submenuId);
     $default.removeClass('default');
-    $submenu.css('display', 'block');
+    if ($submenu.hasClass('mr-menu') == true) {
+      $submenu.fadeTo('fast', 1);
+    }else {
+      $submenu.css('display', 'block');
+    };
     $row.addClass('maintainHover');
   }
 
@@ -104,7 +108,7 @@ function animateOff (form) {
     var $row = $(row),
         submenuId = $row.data("item"),
         $submenu = $("#" + submenuId);
-    $submenu.css('display', 'none');
+        $submenu.css('display', 'none');
     $row.removeClass('maintainHover');
   }
 
