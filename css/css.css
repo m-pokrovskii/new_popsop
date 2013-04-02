@@ -1,3 +1,10 @@
+.grid {
+	background: url(../i/24px_grid_bg.gif);
+	height: 100%;
+	width: 100%;
+	position: fixed; z-index: 20; top: 0;
+	}
+
 .helper-box {
 	border:dashed 1px #eee;
 	padding: 10px;
@@ -112,18 +119,24 @@ h6 {
 
 .logo {
 	display: block;
-	width: 109px; height: 37px;
-	background: url('../i/logo.png') no-repeat 0 0;
+	position: relative;
+	width: 109px; height: 37px;	
 	}
 
+	.logo:after { /*link svg*/
+		content:""; 
+		position:absolute; top:0; left:0; right: 0; bottom: 0;
+		}
+
+	.logo object {
+		width: 109px; height: 37px;	
+		}
+
 	.logo:hover {
+		position: relative;
 		padding: 9px;
-		background: url('../i/logo.png') no-repeat 9px 9px;	
-		-webkit-box-shadow: 0 2px 3px #bababa;
-		-moz-box-shadow: 0 2px 3px #bababa;
 		box-shadow: 0 2px 3px #bababa;
 		margin: -9px -9px 20px -9px !important;
-		position: relative;
 		}
 
 .v-menu {
@@ -267,10 +280,11 @@ h6 {
 		}
 
 
-	.form .icon-search {
+	.form .icon-search, .form .icon-circle-arrow-right {
 		position: absolute; top: 8px; right: 8px;
 		color: #999;
 		}
+
 
 .form-text {
 	display: block;
@@ -326,7 +340,7 @@ h6 {
 			}
 
 .social {
-	
+	margin-left: -4px;
 	}
 
 	.social li{
@@ -336,8 +350,11 @@ h6 {
 
 		.social li a{
 			display: block;
-			width: 24px; height: 24px;
+			text-decoration: none;
+			font-size: 24px;
+			display: inline-block;
 			}
+
 
 		.social li+li {
 			margin-left: 16px;
@@ -370,18 +387,21 @@ h6 {
 	.headline {
 		font: 18px "signikabold";
 		color: #999;
-		padding-bottom: 7px;
-		margin-bottom: 14px;
 		box-shadow: 0px 12px 3px -10px rgba(102,102,102,0.3);
+		padding-bottom: 7px;
 		padding-left: 10px;
 		margin-left: -10px;
 		margin-right: -10px;
+		margin-bottom: 14px;
 		}
 
 .breadpath {
-	padding-bottom: 11px;
-	margin-bottom: 15px;
-	background: url('../i/bg-healine.gif') repeat-x 0 100%;	
+	padding-bottom: 5px;
+	padding-left: 10px;
+	margin-bottom: 17px;
+	margin-left: -10px;
+	margin-right: -10px;	
+	box-shadow: 0px 12px 3px -10px rgba(102,102,102,0.3);
 	text-transform: uppercase;
 	font: 16px open_sansregular;
 	color: #958d8d;
@@ -408,6 +428,10 @@ h6 {
 .meta-post {
 
 	}
+
+	.meta-post__time {
+		color: #999;
+		}
 
 	.meta-post__company {
 		font-family: open_sansbold;
@@ -533,7 +557,7 @@ h6 {
 
 
 .b-v-news_interview {
-	margin-top: 18px;
+	
 	}
 
 	.b-v-news_interview__prv {
@@ -556,6 +580,7 @@ h6 {
 
 .b-hv-news {
 	overflow: hidden;
+	margin-bottom: 4px;
 	}
 
 	.b-hv-news__list {
@@ -602,11 +627,24 @@ h6 {
 	margin-bottom: 25px;
 	}
 
+	.aside-right .wrapperFixed.fixed {
+		width: 312px;
+		position: fixed;
+		bottom: 20px;
+		}
+
+
 .aside-left {
 	float: left;
 	width: 144px;
 	margin-top: 6px;
 	}
+
+	.aside-left .wrapperFixed.fixed {
+		width: 144px;
+		position: fixed;
+		top: 20px;
+		}
 
 
 article.post {
@@ -615,11 +653,12 @@ article.post {
 
 	.post h1 {
 		font: 24px/24px signikabold;
-		color: #004276;
+		color: #333;
+		margin-bottom: 3px;
 		}
 
 	.post header {
-		margin-bottom: 20px;
+		margin-bottom: 24px;
 		}
 
 	.post footer {
@@ -632,9 +671,14 @@ article.post {
 		font-size: 16px;
 		}
 
+		.post__content figcaption {
+			font-size: 14px;
+			line-height: 24px;
+			}
+
 		.post__content h2 {
 			font: 20px "signikabold";
-			color: #040404;
+			color: #333;
 			}
 
 		.post__content p {
@@ -704,7 +748,7 @@ article.post {
 	}
 
 .aside-left .form {
-	margin-bottom: 23px;
+	margin-bottom: 22px;
 	}
 
 .aside-left .logo {
@@ -712,14 +756,15 @@ article.post {
 	}
 
 .aside-left .v-menu {
-	margin-bottom: 43px;
+	position: relative; top: 1px;
+	margin-bottom: 47px;
 	}
 
 
 .aside-left .social {
-margin-top: 36px;
-margin-bottom: 25px;
-}
+	margin-top: 36px;
+	margin-bottom: 25px;
+	}
 
 .aside-left .page-menu {
 	border-top: solid 1px #efdddd;

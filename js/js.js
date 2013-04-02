@@ -14,10 +14,11 @@ $(function() {
 function animateOn (e) {
   $form = $(this).closest('.form');
   $input = $form.find('.form-text');
-  $search = $form.find('.icon-search')
+  hideIcons = $('.icon-search, .icon-circle-arrow-right');
+  $icons = $form.find(hideIcons);
   $erase = $form.find('.ico-erase');
   
-  $search.hide();
+  $icons.hide();
   $form
     .css({
       position: 'relative',
@@ -44,7 +45,8 @@ function animateOff (form) {
   $form = form;
   $input = $form.find('.form-text');
   $erase = $form.find('.ico-erase');
-  $search = $form.find('.icon-search')
+  hideIcons = $('.icon-search, .icon-circle-arrow-right');
+  $icons = $form.find(hideIcons);
   $submit = $form.find('.submit');
 
   $erase.css('display', 'none');
@@ -57,7 +59,7 @@ function animateOff (form) {
       marginTop: '0',
       height : '30',
       },'fast', function(){
-        $search.show();
+        $icons.show();
         $form.removeClass('active');
       })
   $input.animate({width: 138}, "fast");
@@ -111,6 +113,35 @@ function animateOff (form) {
         $submenu.css('display', 'none');
     $row.removeClass('maintainHover');
   }
+
+
+  $asideLeft = $('#aside-left__wrapperFixed');
+  $asideRight = $('#aside-right__wrapperFixed');
+  $asideLeftPos = $asideLeft.position().top;
+  $asideRightPos = $asideRight.position().top + $asideRight.height();
+
+  $(window).scroll(function() {
+    $scrollBottom = $(window).scrollTop() + $(window).height();
+    if($asideLeftPos >= $(document).scrollTop() + 20) {
+      if($asideLeft.hasClass('fixed')) {
+        $asideLeft.removeClass('fixed');
+      }
+    } else { 
+        if($asideLeft.hasClass('fixed') == false) {
+          $asideLeft.addClass('fixed');
+        }
+    }
+    if($asideRightPos >= $scrollBottom - 20) {
+      if($asideRight.hasClass('fixed')) {
+        $asideRight.removeClass('fixed');
+      }
+    } else { 
+        if($asideRight.hasClass('fixed') == false) {
+          $asideRight.addClass('fixed');
+        }
+    }
+  });
+
 
 });
 
